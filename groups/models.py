@@ -1,7 +1,7 @@
 from typing import Iterable
 from django.db import models
 from django.utils.text import slugify
-#import misaka
+import markdown
 from django.contrib.auth import get_user_model
 User = get_user_model()
 from django import template
@@ -20,7 +20,7 @@ class Group(models.Model):
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
-        self.description_html = misaka.html(self.description)
+        self.description_html = markdown.markdown(self.description)
         super().save(*args, **kwargs)
     
     def get_absolute_url(self):

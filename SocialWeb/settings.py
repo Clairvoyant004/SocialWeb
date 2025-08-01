@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'groups',
     'posts',
+    'markdown',
 ]
 
 MIDDLEWARE = [
